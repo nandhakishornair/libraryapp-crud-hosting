@@ -11,21 +11,26 @@ const UserSchema = new Schema({
         // username : String,
         // password : String
         name: {
-            type: String
-          },
-          email: {
-            type: String,
-            required: true
-          },
-          username: {
-            type: String,
-            required: true
-            // index: {unique:true}
-          },
-          password: {
-            type: String,
-            required: true
-          }
+          type: String,
+          unique: false
+        },
+        email: {
+          type: String,
+          unique: false
+          
+        },
+        username: {
+          type: String,
+          required: true,
+          unique: true
+          // index: {unique:true}
+        },
+        password: {
+          type: String,
+          required: true,
+          unique: false
+          
+        }
 
     });
 

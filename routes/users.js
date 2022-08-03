@@ -24,9 +24,23 @@ route.post('/signin',function(req,res){
         password : req.body.users.password 
     }  
    let user = new Userdata(users);
-   user.save();
-   console.log(user)
-});
+   user.save(function(err) {
+    if (err) {
+      if (err.name === 'MongoError' && err.code === 11000) {
+        // Duplicate username
+        return res.status(422).send({ succes: false, message: 'User already exist!' });
+      }
+
+      // Some other error
+      return res.status(422).send(err);
+    }
+
+    res.json({
+      success: true
+    });
+
+  });
+})
 
 
 // route.post('/login', (req, res) => {

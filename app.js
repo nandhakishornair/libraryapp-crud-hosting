@@ -20,8 +20,8 @@ app.use(cors());
 // mongoose.connection.on('connected',()=>{
 //     console.log("connected to db"+config.database)
 // })
-mongoose.connect('mongodb+srv://asa:ZWiJnhqZECxuK8J9@cluster0.qgsdgt0.mongodb.net/?retryWrites=true&w=majority',
-{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://asa:ZWiJnhqZECxuK8J9@cluster0.qgsdgt0.mongodb.net/?retryWrites=true&w=majority'
+);
 mongoose.connection.on('connected',()=>{
     console.log('mongodb connected');
 });
